@@ -25,11 +25,11 @@ clientapp = "our_federation.client_app:app"
 
 [tool.flwr.app.config]
 num-server-rounds = 5
-n_estimators = 1000
-max_depth = 100
+n_estimators = 100
+max_depth = 3
 
 [tool.flwr.federations]
 default = "local-simulation"
 
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 25
+options.num-supernodes = 10

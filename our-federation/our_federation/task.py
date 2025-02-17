@@ -39,12 +39,12 @@ def get_model(n_estimators: int, max_depth: int):
 
 
 def get_model_params(model):
-    params = model.estimators_
+    params = model.get_params()
     return params
 
 
 def set_model_params(model, params):
-    model.estimators_ = params
+    model.set_params(**params)
     return model
 
 
