@@ -50,7 +50,7 @@ def client_fn(context: Context):
 
     # Setting initial parameters, akin to model.compile for keras models
     set_initial_params(model)
-
+    print(f'Client {partition_id} is setup.')
     return FlowerClient(model, X_train, X_test, y_train, y_test).to_client()
 
 

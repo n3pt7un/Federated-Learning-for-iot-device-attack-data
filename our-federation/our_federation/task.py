@@ -20,7 +20,7 @@ def load_data(partition_id: int, num_partitions: int):
 
     dataset = fds.load_partition(partition_id, "train").with_format("numpy")
 
-    X, y = dataset.drop('label'), dataset["label"]
+    X, y = dataset.remove_columns('label'), dataset["label"]
 
     # Split the on edge data: 80% train, 20% test
     X_train, X_test = X[: int(0.8 * len(X))], X[int(0.8 * len(X)) :]
@@ -44,7 +44,7 @@ def get_model_params(model):
 
 
 def set_model_params(model, params):
-    model.set_params(**params)
+    model.set_params(params)
     return model
 
 
