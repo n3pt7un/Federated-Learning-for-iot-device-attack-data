@@ -26,7 +26,7 @@ class FlowerClient(NumPyClient):
     def fit(self, parameters, config):
         set_model_params(self.model, parameters)
         self.model.fit(self.X_train, self.y_train)
-        return get_model_params(self.model), len(self.X_train), {}
+        return get_model_params(self.model)
 
     def evaluate(self, parameters, config):
         set_model_params(self.model, parameters)

@@ -8,7 +8,7 @@ from sklearn.ensemble import RandomForestClassifier
 fds = None  # Cache FederatedDataset
 
 
-def load_data(partition_id: int, num_partitions: int):
+def load_data(partition_id: int, num_partitions: int, subset: float = 1.0):
     # Only initialize `FederatedDataset` once
     global fds
     if fds is None:
@@ -44,7 +44,8 @@ def get_model_params(model):
 
 
 def set_model_params(model, params):
-    model.set_params(params)
+    params_d = dict(zip(params[0], params[1]))
+    model = model.set_params(**params_d)
     return model
 
 
